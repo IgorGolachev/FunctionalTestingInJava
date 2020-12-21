@@ -1,12 +1,11 @@
 package elements;
 
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.support.FindBy;
+
+import static com.codeborne.selenide.Selenide.$;
 
 public class BasePageElements {
 
-    @FindBy(css="a[class='login']")
-    public SelenideElement signInButton;
-
+    public SelenideElement signInButton = $("a[class='login']");
 
 }
