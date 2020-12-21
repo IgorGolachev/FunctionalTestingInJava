@@ -1,12 +1,12 @@
 package pages;
 
-import org.openqa.selenium.By;
-
-import static com.codeborne.selenide.Selenide.$;
+import elements.BasePageElements;
 
 public class BasePage {
 
+    private BasePageElements ui = new BasePageElements();
+
     public void clickLoginButton() {
-        $(By.cssSelector("a[class='login']")).click();
+        ui.signInButton.click();
     }
 }
