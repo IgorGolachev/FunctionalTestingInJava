@@ -1,12 +1,11 @@
 package pages;
 
-import elements.BasePageElements;
+import elements.Button;
+
+import static com.codeborne.selenide.Selenide.$;
 
 public class BasePage {
 
-    private BasePageElements ui = new BasePageElements();
+    public Button signInButton = new Button("a[class='login']");
 
-    public void clickLoginButton() {
-        ui.signInButton.click();
-    }
 }
