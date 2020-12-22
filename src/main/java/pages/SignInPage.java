@@ -4,9 +4,8 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class BasePage {
+public class SignInPage {
 
-    public SelenideElement signInButton = $("a[class='login']");
-
+    public SelenideElement authLabel = $("a[class='home'] ~ span ~ span");
 
 }
