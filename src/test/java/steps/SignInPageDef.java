@@ -27,6 +27,7 @@ public final class SignInPageDef {
     public void createAccountWithRandomEmail() {
         String email = String.format("Auto_%s@mail.com", RandomStringUtils.randomAlphabetic(5));
         page.specifyNewEmail(email);
+
         Context.put("email", email);
         page.clickCreateAccountButton();
     }

@@ -1,5 +1,6 @@
-package steps;
+package pages;
 
 public class CreateAccountPage {
+
 
 }

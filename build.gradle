@@ -10,6 +10,7 @@ wrapper.gradleVersion = '5.6.7'
 def cucumberVersion = '6.9.1'
 def junitVersion = '5.7.0'
 def selenideVersion = '5.16.2'
+def lombokVersion = '1.18.16'
 
 repositories {
     jcenter()
@@ -24,10 +25,11 @@ dependencies {
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
     testRuntimeOnly "org.junit.vintage:junit-vintage-engine:${junitVersion}"
 
-    compileOnly 'org.projectlombok:lombok:1.18.10'
-    annotationProcessor 'org.projectlombok:lombok:1.18.10'
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 
     compile "com.codeborne:selenide:${selenideVersion}"
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.18.1'
 }
 
 configurations {
