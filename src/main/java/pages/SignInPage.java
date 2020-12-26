@@ -4,8 +4,12 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class SignInPage {
+public final class SignInPage {
 
-    public SelenideElement authLabel = $("a[class='home'] ~ span ~ span");
-
+    public final SelenideElement breadCrumbs = $("a[class='home'] ~ span ~ span");
+    public final SelenideElement emailInput = $("input[id=email]");
+    public final SelenideElement passwordInput = $("input[id=passwd]");
+    public final SelenideElement signInButton = $("button[id=SubmitLogin]");
+    public final SelenideElement newEmailInput = $("input[id=email_create]");
+    public final SelenideElement createAccountButton = $("button[id=SubmitCreate]");
 }

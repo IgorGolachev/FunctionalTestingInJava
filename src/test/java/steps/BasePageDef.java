@@ -2,9 +2,9 @@ package steps;
 
 import io.cucumber.java.en.Given;
 
-public class BasePageDef {
+public final class BasePageDef {
 
-    BasePageSteps page = new BasePageSteps();
+    private final BasePageSteps page = new BasePageSteps();
 
     @Given("Click Sing In Button")
     public void clickSingInButton() {

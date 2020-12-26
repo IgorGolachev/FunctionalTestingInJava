@@ -2,9 +2,9 @@ package steps;
 
 import pages.BasePage;
 
-public class BasePageSteps {
+public final class BasePageSteps {
 
-    private BasePage ui = new BasePage();
+    private final BasePage ui = new BasePage();
 
     public void clickLoginButton() {
         ui.signInButton.click();

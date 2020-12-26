@@ -3,7 +3,7 @@ package steps;
 import io.cucumber.java.Before;
 import static com.codeborne.selenide.Selenide.open;
 
-public class Hooks {
+public final class Hooks {
 
     @Before
     public void setUp() {

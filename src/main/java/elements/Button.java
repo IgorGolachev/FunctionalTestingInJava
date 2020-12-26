@@ -3,7 +3,7 @@ package elements;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
-public class Button extends WrappedElement {
+public final class Button extends WrappedElement {
 
     public Button(String path) {
         super(path);
