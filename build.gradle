@@ -20,7 +20,8 @@ repositories {
 dependencies {
     testImplementation "io.cucumber:cucumber-java:${cucumberVersion}"
     testImplementation "io.cucumber:cucumber-junit:${cucumberVersion}"
-    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+
+    implementation 'org.assertj:assertj-core:3.18.1'
 
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
     testRuntimeOnly "org.junit.vintage:junit-vintage-engine:${junitVersion}"
@@ -29,7 +30,6 @@ dependencies {
     annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 
     compile "com.codeborne:selenide:${selenideVersion}"
-    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.18.1'
 }
 
 configurations {

@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import elements.FormInput;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -11,5 +12,5 @@ public final class SignInPage {
     public final SelenideElement passwordInput = $("input[id=passwd]");
     public final SelenideElement signInButton = $("button[id=SubmitLogin]");
     public final SelenideElement createAccountButton = $("button[id=SubmitCreate]");
-    public final SelenideElement newEmailInput = $("input[id='email_create']");
+    public final FormInput newEmailInput = new FormInput("input[id='email_create']");
 }

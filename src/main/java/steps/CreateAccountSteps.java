@@ -2,7 +2,9 @@ package steps;
 
 import pages.CreateAccountPage;
 
+import static com.codeborne.selenide.Selenide.page;
+
 public class CreateAccountSteps {
 
-    CreateAccountPage page = new CreateAccountPage();
+    CreateAccountPage page = page(CreateAccountPage.class);
 }
