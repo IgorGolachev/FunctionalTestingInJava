@@ -15,6 +15,7 @@ public final class SignInPageSteps {
 
     public SignInPageSteps verifyThePageIsLoaded() {
         ui.breadCrumbs.shouldHave(text(AUTHENTICATION));
+        ui.pageHeader.shouldHave(text(AUTHENTICATION.toUpperCase()));
         return this;
     }
 
