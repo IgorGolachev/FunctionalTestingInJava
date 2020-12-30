@@ -11,7 +11,8 @@ public final class RadioButton extends WrappedElement implements ElementValidato
 
     @Override
     public SelenideElement setValue(String text) {
-        return super.selectRadio(text);
+        super.selectRadio(this.getValue());
+        return super.element;
     }
 
     @Override

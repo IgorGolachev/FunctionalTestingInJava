@@ -9,6 +9,12 @@ import org.openqa.selenium.By;
 public final class FormInput extends WrappedElement implements ElementValidator {
 
     @Override
+    public SelenideElement setValue(String text) {
+        super.clear();
+        return super.setValue(text);
+    }
+
+    @Override
     public boolean isValidationFailed() {
         checkValidation("form-group form-error");
         return true;

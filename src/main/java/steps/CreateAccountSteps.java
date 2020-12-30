@@ -1,5 +1,6 @@
 package steps;
 
+import exception.ElementValidatedException;
 import exception.NoSuchFieldException;
 import pages.CreateAccountPage;
 
@@ -20,8 +21,9 @@ public class CreateAccountSteps {
         return this;
     }
 
-    public CreateAccountSteps setPersonalInformation(Map<String, String> personalInfo) throws NoSuchFieldException {
-        for (String key: personalInfo.keySet()) {
+    public CreateAccountSteps setPersonalInformation(Map<String, String> personalInfo)
+            throws NoSuchFieldException, ElementValidatedException {
+        for (String key : personalInfo.keySet()) {
             ui.personalInformation.setFieldValueByName(key, personalInfo.get(key));
         }
         return this;

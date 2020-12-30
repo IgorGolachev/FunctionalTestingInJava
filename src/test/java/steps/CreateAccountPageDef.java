@@ -1,5 +1,6 @@
 package steps;
 
+import exception.ElementValidatedException;
 import exception.NoSuchFieldException;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
@@ -17,7 +18,7 @@ public class CreateAccountPageDef {
     }
 
     @And("Fill out your personal information with values")
-    public void fillOutPersonalInformationForm(DataTable data) throws NoSuchFieldException {
+    public void fillOutPersonalInformationForm(DataTable data) throws NoSuchFieldException, ElementValidatedException {
         Map<String, String> personalInfo = data.transpose().asMap(String.class, String.class);
         page.setPersonalInformation(personalInfo);
     }
