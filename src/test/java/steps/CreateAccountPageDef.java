@@ -1,5 +1,6 @@
 package steps;
 
+import exception.NoSuchFieldException;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.And;
@@ -16,14 +17,14 @@ public class CreateAccountPageDef {
     }
 
     @And("Fill out your personal information with values")
-    public void fillOutPersonalInformationForm(DataTable data) {
+    public void fillOutPersonalInformationForm(DataTable data) throws NoSuchFieldException {
         Map<String, String> personalInfo = data.transpose().asMap(String.class, String.class);
-
+        page.setPersonalInformation(personalInfo);
     }
 
     @And("Fill out your address with values")
     public void fillOutYourAddressForm(DataTable data) {
-        Map<String, String> credentials = data.transpose().asMap(String.class, String.class);
+        Map<String, String> addressInfo = data.transpose().asMap(String.class, String.class);
     }
 
 }
