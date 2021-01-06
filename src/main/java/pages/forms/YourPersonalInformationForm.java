@@ -10,7 +10,7 @@ import interfaces.ElementValidator;
 import java.util.HashMap;
 import java.util.Map;
 
-public class YourPersonalInformation {
+public class YourPersonalInformationForm {
 
     private static final Map<String, WrappedElement> FORM_FIELDS = new HashMap<>();
 
@@ -20,22 +20,21 @@ public class YourPersonalInformation {
     public final FormInput firstNameInput = new FormInput("input[id='customer_firstname']");
     public final FormInput lastNameInput = new FormInput("input[id='customer_lastname']");
 
-    public YourPersonalInformation setFieldValueByName(String fieldName, String value)
+    public YourPersonalInformationForm setFieldValueByName(String fieldName, String value)
             throws NoSuchFieldException, ElementValidatedException {
         WrappedElement element = FORM_FIELDS.get(fieldName);
 
         if (element == null)
             throw new NoSuchFieldException(String.format("%s field doesn't exist", fieldName));
-        element.setValue(value);
+        element.setValue(value).pressTab();
 
-        if ((element instanceof ElementValidator) && ((ElementValidator) element).isValidationPassed())
+        if ((element instanceof ElementValidator) && !((ElementValidator) element).isValidationPassed())
             throw new ElementValidatedException(String.format("%s field is validated", fieldName));
-
 
         return this;
     }
 
-    public YourPersonalInformation() {
+    public YourPersonalInformationForm() {
         FORM_FIELDS.put("Mr", titleMrRadioButton);
         FORM_FIELDS.put("Mrs", titleMrsRadioButton);
         FORM_FIELDS.put("FirstName", firstNameInput);

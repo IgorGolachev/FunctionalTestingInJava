@@ -28,7 +28,7 @@ public final class FormInput extends WrappedElement implements ElementValidator 
 
     private void checkValidation(String validatedClassValue) {
         this.parent().waitUntil(
-                Condition.attribute("class", validatedClassValue),
+                Condition.attributeMatching("class", ".*" + validatedClassValue + ".*"),
                 SelenideConfig.DEFAULT_TIMEOUT_MS);
     }
 

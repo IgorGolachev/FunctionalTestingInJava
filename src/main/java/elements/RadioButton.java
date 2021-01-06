@@ -4,7 +4,6 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
-import config.SelenideConfig;
 import interfaces.ElementValidator;
 
 public final class RadioButton extends WrappedElement implements ElementValidator {
@@ -28,9 +27,7 @@ public final class RadioButton extends WrappedElement implements ElementValidato
     }
 
     private void checkValidation(String validatedClassValue) {
-        this.parent().waitUntil(
-                Condition.attribute("class", validatedClassValue),
-                SelenideConfig.DEFAULT_TIMEOUT_MS);
+        this.parent().shouldHave(Condition.cssClass(validatedClassValue));
     }
 
     public RadioButton(String path) {
