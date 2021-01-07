@@ -31,6 +31,7 @@ jobs:
       run: chmod +x gradlew
 
     - name: Build with Gradle
+      if: ${{ always() }}
       run: ./gradlew build
 
     - name: Upload report
