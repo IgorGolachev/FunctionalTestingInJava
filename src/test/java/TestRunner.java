@@ -3,7 +3,15 @@ import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = "pretty", features = "src/test/resources/features")
+@CucumberOptions(
+        features = "src/test/resources/features",
+        monochrome = true,
+        plugin = {
+                "pretty", "html:target/cucumber-html-report.html",
+                "json:target/cucumber.json",
+                "pretty:target/cucumber-pretty.txt"
+        }
+)
 public class TestRunner {
 
 }
