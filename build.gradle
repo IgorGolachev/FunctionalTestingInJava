@@ -9,7 +9,7 @@ version '1.0-SNAPSHOT'
 wrapper.gradleVersion = '5.6.7'
 def cucumberVersion = '6.9.1'
 def junitVersion = '5.7.0'
-def selenideVersion = '5.16.2'
+def selenideVersion = '5.17.0'
 def lombokVersion = '1.18.16'
 
 repositories {
