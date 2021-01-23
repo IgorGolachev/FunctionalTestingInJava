@@ -22,10 +22,14 @@ jobs:
       with:
         java-version: 1.11
 
-    - name: Install Google Chrome
-      run: |
-       chmod +x ./scripts/InstallChrome.sh
-        ./scripts/InstallChrome.sh
+    - name: Download Selenoid Configuration Manager
+      run: curl -s https://aerokube.com/cm/bash | bash && ./cm selenoid configure --browsers "chrome" --last-versions 1 --config-dir config
+    - run: cat config/browsers.json
+
+    - run: mkdir -p $PWD/opt/
+
+    - name: Docker compose
+      run: docker-compose up -d
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew

@@ -11,8 +11,9 @@ public final class Hooks {
 
     @Before
     public void setUp() {
-        Configuration.headless = true;
-        Configuration.startMaximized = true;
+        Configuration.remote = "http://selenoid:4444/wd/hub";
+        Configuration.browser = "chrome";
+        Configuration.browserSize = "1920x1080";
 
         open("http://automationpractice.com/index.php");
     }

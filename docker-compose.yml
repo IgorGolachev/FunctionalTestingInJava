@@ -1,0 +1,18 @@
+version: '3'
+networks:
+  selenoid:
+    driver: bridge
+
+services:
+  selenoid:
+    image: aerokube/selenoid:latest-release
+    networks:
+      - selenoid
+    container_name: selenoid
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "$PWD/config/:/etc/selenoid/"
+      - "$PWD/opt/:/opt/selenoid/logs/"
+    command: ["-conf", "/etc/selenoid/browsers.json", "-log-output-dir", "/opt/selenoid/logs"]
+    ports:
+      - "4444:4444"
