@@ -4,7 +4,7 @@ services:
   selenoid:
     container_name: selenoid
     network_mode: bridge
-    image: $(docker images | grep "aerokube/selenoid")
+    image: aerokube/selenoid:latest-release
     volumes:
       - "$PWD/config/:/etc/selenoid/"
       - "/var/run/docker.sock:/var/run/docker.sock"
