@@ -8,10 +8,11 @@ services:
       context: .
     volumes:
       - "$PWD/report/:/target/"
-    depends_on:
-      - "selenoid"
+    command: ["gradle", "build", " --no-daemon"]
     ports:
       - "5432:5432"
+    depends_on:
+      - "selenoid"
 
   selenoid:
     container_name: selenoid
