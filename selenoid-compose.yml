@@ -7,7 +7,7 @@ services:
     build:
       context: .
     volumes:
-      - "$PWD/report/:/home/target/"
+      - "$PWD/report/:/home/gradle/src/target/"
     command: [/bin/bash, -c, "gradle build"]
     ports:
       - "5432:5432"
