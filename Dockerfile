@@ -6,4 +6,4 @@ RUN ls -la
 
 WORKDIR /home/gradle/src
 
-RUN pwd
+RUN ls -la
