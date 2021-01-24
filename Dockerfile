@@ -12,3 +12,5 @@ WORKDIR /home/gradle/src
 
 RUN pwd
 RUN ls -la
+
+RUN gradle build
