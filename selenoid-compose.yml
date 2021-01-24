@@ -8,7 +8,7 @@ services:
       context: .
     volumes:
       - "$PWD/report/:/home/target/"
-    command: ["gradle", "build"]
+    command: [/bin/bash, -c, "gradle build"]
     ports:
       - "5432:5432"
     depends_on:
