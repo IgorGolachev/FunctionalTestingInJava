@@ -7,8 +7,8 @@ services:
     build:
       context: .
     volumes:
-      - "$PWD/report/:/target/"
-    command: ["gradle", "build", " --no-daemon"]
+      - "$PWD/report/:/home/target/"
+    command: ["gradle", "build", "--no-daemon"]
     ports:
       - "5432:5432"
     depends_on:
