@@ -1,6 +1,18 @@
 version: '3'
 
 services:
+
+  selenidetests:
+    container_name: tests
+    build:
+      context: .
+    volumes:
+      - "$PWD/report/:/target/"
+    depends_on:
+      - "selenoid"
+    ports:
+      - "5432:5432"
+
   selenoid:
     container_name: selenoid
     network_mode: bridge
@@ -9,11 +21,11 @@ services:
       - "$PWD/config/:/etc/selenoid/"
       - "/var/run/docker.sock:/var/run/docker.sock"
     command: [
-        "-conf", "/etc/selenoid/browsers.json",
-        "-service-startup-timeout", "3m0s",
-        "-session-attempt-timeout", "3m0s",
-        "-session-delete-timeout", "3m0s",
-        "-timeout", "5m0s"
+          "-conf", "/etc/selenoid/browsers.json",
+          "-service-startup-timeout", "3m0s",
+          "-session-attempt-timeout", "3m0s",
+          "-session-delete-timeout", "3m0s",
+          "-timeout", "5m0s"
     ]
     ports:
-      - "4444:4444"
+        - "4444:4444"
