@@ -7,9 +7,10 @@ services:
     build: .
     depends_on:
       - "selenoid"
-    command: [/bin/bash, -c, "gradle build"]
+    command: >
+      sh -c "gradle build"
     volumes:
-      - "$PWD/:/home/gradle/src/"
+      #- "$PWD/:/home/gradle/src/"
       - "$PWD/report/:/home/gradle/src/target/"
     ports:
       - "5432:5432"
