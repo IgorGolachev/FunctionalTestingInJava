@@ -11,7 +11,7 @@ public final class Hooks {
 
     @Before
     public void setUp() {
-        Configuration.remote = "http://127.0.0.1:4444/wd/hub";
+        //Configuration.remote = "http://127.0.0.1:4444/wd/hub";
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
 
