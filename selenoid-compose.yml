@@ -4,16 +4,15 @@ services:
 
   selenidetests:
     container_name: tests
-    build:
-      context: .
+    build: .
+    depends_on:
+      - "selenoid"
+    command: [/bin/bash, -c, "gradle build"]
     volumes:
       - "$PWD/:/home/gradle/src/"
       - "$PWD/report/:/home/gradle/src/target/"
-    command: [/bin/bash, -c, "gradle build"]
     ports:
       - "5432:5432"
-    depends_on:
-      - "selenoid"
 
   selenoid:
     container_name: selenoid
