@@ -9,25 +9,22 @@ services:
       - "selenoid"
     command: >
       sh -c "gradle build"
-    volumes:
-      #- "$PWD/:/home/gradle/src/"
-      - "$PWD/report/:/home/gradle/src/target/"
     ports:
       - "5432:5432"
 
   selenoid:
     container_name: selenoid
-    network_mode: bridge
+    #network_mode: bridge
     image: aerokube/selenoid:latest-release
     volumes:
-      - "$PWD/config/:/etc/selenoid/"
+      - "$PWD/config:/etc/selenoid/"
       - "/var/run/docker.sock:/var/run/docker.sock"
     command: [
-          "-conf", "/etc/selenoid/browsers.json",
-          "-service-startup-timeout", "3m0s",
-          "-session-attempt-timeout", "3m0s",
-          "-session-delete-timeout", "3m0s",
-          "-timeout", "5m0s"
+        "-conf", "/etc/selenoid/browsers.json",
+        "-service-startup-timeout", "3m0s",
+        "-session-attempt-timeout", "3m0s",
+        "-session-delete-timeout", "3m0s",
+        "-timeout", "5m0s"
     ]
     ports:
-        - "4444:4444"
+      - "4444:4444"
