@@ -33,6 +33,15 @@ jobs:
       if: ${{ always() }}
       run: docker-compose -f docker-compose-actions.yml down
 
+    - name: list directories
+      run: ls -la
+
+    - name: go to report folder
+      run: cd report
+
+    - name: list files
+      run: ls -la
+
     - name: Upload report as artifact
       if: ${{ always() }}
       uses: actions/upload-artifact@v2
