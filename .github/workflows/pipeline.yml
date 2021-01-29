@@ -32,6 +32,9 @@ jobs:
     - name: Start Selenoid
       run: docker-compose -f docker-compose-linux.yml up -d --build
 
+    - name: Echo Selenoid IP
+      run: docker inspect --format '{{ .NetworkSettings.IPAddress }}' selenoid
+
     - name: Print Tests log
       run: docker logs tests
 
