@@ -43,7 +43,7 @@ jobs:
 
     - name: go to report folder
       if: ${{ always() }}
-      run: cd report/
+      run: cd report
 
     - name: current dir
       if: ${{ always() }}
