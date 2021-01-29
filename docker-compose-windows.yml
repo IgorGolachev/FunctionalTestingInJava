@@ -26,7 +26,7 @@ services:
       - "./config:/etc/selenoid:ro"
       - "//var/run/docker.sock:/var/run/docker.sock"
     command: [
-        "-conf", "/etc/selenoid/browsers.json",
+        "-conf", "/etc/selenoid/browsers-local.json",
         "-service-startup-timeout", "3m0s",
         "-session-attempt-timeout", "3m0s",
         "-session-delete-timeout", "3m0s",
