@@ -20,32 +20,20 @@ jobs:
     #- name: Download and cofigure Selenoid Configuration Manager (+ pull browsers)
     #  run: curl -s https://aerokube.com/cm/bash | bash && ./cm selenoid configure --browsers "chrome" --last-versions 1 --config-dir config
 
-    #- name: Check Containers
-    #  run: docker ps -a
-
-    #- name: Check Images
-    #  run: docker images
-
     - name: Create Cucumber report folder
       run: mkdir report
+
+    - name: Write permossions for report folder
+      run: chmod 777 report
 
     - name: Pull Chrome Image
       run: docker pull selenoid/vnc_chrome:87.0
 
     - name: Start Selenoid
-      run: docker-compose -f docker-compose-linux.yml up --build --abort-on-container-exit
-
-    - name: Echo Selenoid IP
-      run: docker inspect --format '{{ .NetworkSettings.IPAddress }}' selenoid
-
-    - name: Print Tests log
-      run: docker logs tests
-
-    - name: Print Selenoid log
-      run: docker logs selenoid
+      run: docker-compose -f docker-compose-actions.yml up --build --abort-on-container-exit
 
     - name: Stop Selenoid
-      run: docker-compose -f docker-compose-linux.yml down
+      run: docker-compose -f docker-compose-actions.yml down
 
     - name: Upload report as artifact
       if: ${{ always() }}
