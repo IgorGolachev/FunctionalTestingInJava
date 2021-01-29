@@ -34,12 +34,15 @@ jobs:
       run: docker-compose -f docker-compose-actions.yml down
 
     - name: list directories
+      if: ${{ always() }}
       run: ls -la
 
     - name: go to report folder
+      if: ${{ always() }}
       run: cd report
 
     - name: list files
+      if: ${{ always() }}
       run: ls -la
 
     - name: Upload report as artifact
