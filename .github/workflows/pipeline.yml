@@ -39,7 +39,7 @@ jobs:
       run: docker logs selenoid
 
     - name: Stop Selenoid
-      run: docker-compose -f docker-compose-local.yml down
+      run: docker-compose -f docker-compose-linux.yml down
 
     - name: Upload report as artifact
       if: ${{ always() }}
