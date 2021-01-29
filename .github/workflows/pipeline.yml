@@ -29,6 +29,9 @@ jobs:
     - name: Create Cucumber report folder
       run: mkdir report
 
+    - name: Pull Chrome Image
+      run: docker pull selenoid/vnc_chrome:87.0
+
     - name: Start Selenoid
       run: docker-compose -f docker-compose-linux.yml up --build
 
