@@ -1,20 +1,26 @@
-version: '3'
+version: '3.6'
 
 services:
 
-  selenidetests:
+  selenide-tests:
     container_name: tests
+    network_mode: bridge
     build: .
-    depends_on:
-      - "selenoid"
+    volumes:
+      - "./report:/report"
+    #command: bash -c "gradle test"
     command: >
-      sh -c "gradle build"
+      bash -c "gradle test &&
+               cd report &&
+               ls -la"
     ports:
       - "5432:5432"
+    depends_on:
+      - "selenoid"
 
   selenoid:
     container_name: selenoid
-    #network_mode: bridge
+    network_mode: bridge
     image: aerokube/selenoid:latest-release
     volumes:
       - "$PWD/config:/etc/selenoid/"

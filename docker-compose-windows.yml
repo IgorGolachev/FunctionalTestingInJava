@@ -1,0 +1,36 @@
+version: '3.6'
+
+services:
+
+  selenide-tests:
+    container_name: tests
+    network_mode: bridge
+    build: .
+    volumes:
+      - "./report:/report"
+    #command: bash -c "gradle test"
+    command: >
+      bash -c "gradle test &&
+               cd report &&
+               ls -la"
+    ports:
+      - "5432:5432"
+    depends_on:
+      - "selenoid"
+
+  selenoid:
+    container_name: selenoid
+    network_mode: bridge
+    image: aerokube/selenoid:latest-release
+    volumes:
+      - "./config:/etc/selenoid:ro"
+      - "//var/run/docker.sock:/var/run/docker.sock"
+    command: [
+        "-conf", "/etc/selenoid/browsers.json",
+        "-service-startup-timeout", "3m0s",
+        "-session-attempt-timeout", "3m0s",
+        "-session-delete-timeout", "3m0s",
+        "-timeout", "5m0s"
+    ]
+    ports:
+      - "4444:4444"

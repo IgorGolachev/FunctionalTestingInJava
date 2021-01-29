@@ -7,9 +7,9 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         monochrome = true,
         plugin = {
-                "pretty", "html:target/cucumber-html-report.html",
-                "json:target/cucumber.json",
-                "pretty:target/cucumber-pretty.txt"
+                "pretty", "html:report/cucumber-html-report.html",
+                "json:report/cucumber.json",
+                "pretty:report/cucumber-pretty.txt"
         }
 )
 public class TestRunner {
