@@ -26,9 +26,6 @@ jobs:
     - name: Write permossions for report folder
       run: chmod 777 report
 
-    - name: Pull Chrome Image
-      run: docker pull selenoid/vnc_chrome:87.0
-
     - name: Start Selenoid
       run: docker-compose -f docker-compose-actions.yml up --build --abort-on-container-exit
 
