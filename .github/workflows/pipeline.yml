@@ -30,7 +30,7 @@ jobs:
       run: mkdir report
 
     - name: Start Selenoid
-      run: docker-compose -f docker-compose-linux.yml up -d --build
+      run: docker-compose -f docker-compose-linux.yml up --build
 
     - name: Echo Selenoid IP
       run: docker inspect --format '{{ .NetworkSettings.IPAddress }}' selenoid
