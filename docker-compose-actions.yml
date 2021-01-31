@@ -8,11 +8,7 @@ services:
     build: .
     volumes:
       - "./report:/home/gradle/src/report"
-    #command: bash -c "gradle test"
-    command: >
-      bash -c "gradle test &&
-               cd report &&
-               ls -la"
+    command: bash -c "gradle test"
     ports:
       - "5432:5432"
     depends_on:
