@@ -7,7 +7,7 @@ services:
     network_mode: bridge
     build: .
     volumes:
-      - "./report:/report"
+      - "./report:/home/gradle/src/report"
     #command: bash -c "gradle test"
     command: >
       bash -c "gradle test &&
