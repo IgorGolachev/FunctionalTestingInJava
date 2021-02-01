@@ -3,13 +3,14 @@ version: '3.6'
 services:
 
   selenide-tests:
-    network_mode: bridge
     build: .
     volumes:
       - "./report:/home/gradle/src/report"
     command: bash -c "gradle test"
     ports:
       - "5432:5432"
+    links:
+      - selenoid
     depends_on:
       - "selenoid"
 
