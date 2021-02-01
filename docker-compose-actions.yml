@@ -9,8 +9,6 @@ services:
     command: bash -c "gradle test"
     ports:
       - "5432:5432"
-    links:
-      - selenoid
     depends_on:
       - "selenoid"
 
