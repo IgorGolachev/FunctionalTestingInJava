@@ -16,7 +16,7 @@ services:
 
   selenoid:
     container_name: selenoid
-    #network_mode: bridge
+    network_mode: bridge
     image: aerokube/selenoid:latest-release
     volumes:
       - "$PWD/config:/etc/selenoid/"
