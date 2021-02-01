@@ -4,6 +4,7 @@ services:
 
   selenide-tests:
     container_name: tests
+    network_mode: bridge
     build: .
     volumes:
       - "./report:/home/gradle/src/report"
