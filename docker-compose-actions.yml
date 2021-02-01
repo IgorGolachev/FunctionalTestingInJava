@@ -3,7 +3,6 @@ version: '3.6'
 services:
 
   selenide-tests:
-    #container_name: tests
     network_mode: bridge
     build: .
     volumes:
