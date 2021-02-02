@@ -29,6 +29,9 @@ jobs:
     - name: Create selenoid_actions network
       run: docker network create -d bridge selenoid_actions
 
+    - name: list networks
+      run: docker network ls
+
     - name: Start Selenoid
       run: docker-compose -f docker-compose-actions.yml up --build --abort-on-container-exit
 
