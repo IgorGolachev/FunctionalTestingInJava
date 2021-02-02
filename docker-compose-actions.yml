@@ -39,9 +39,9 @@ services:
       selenoid:
         ipv4_address: "10.10.10.1"
 
-  networks:
-    selenoid:
-      driver: bridge
+networks:
+  selenoid:
+    driver: bridge
       ipam:
         config:
           - subnet: 10.10.100.0/24
