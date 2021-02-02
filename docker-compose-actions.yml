@@ -1,27 +1,23 @@
 version: '3'
-networks:
-  selenoid:
-    external:
-      name: selenoid-actions
 
 services:
 
   selenide-tests:
-    #network_mode: bridge
+    network_mode: bridge
     container_name: tests
     build: .
     volumes:
       - "./report:/home/gradle/src/report"
     command: bash -c "gradle test"
+    links:
+      - selenoid
     ports:
-     - "5432:5432"
+      - "5432:5432"
     depends_on:
       - "selenoid"
 
   selenoid:
-    networks:
-      selenoid-actions: null
-    #network_mode: bridge
+    network_mode: bridge
     container_name: selenoid
     image: aerokube/selenoid:latest-release
     volumes:
