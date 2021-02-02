@@ -26,6 +26,9 @@ jobs:
     - name: Write permossions for report folder
       run: chmod 777 report
 
+    - name: Create selenoid_actions network
+      run: docker network create -d bridge selenoid_actions
+
     - name: Start Selenoid
       run: docker-compose -f docker-compose-actions.yml up --build --abort-on-container-exit
 

@@ -1,7 +1,8 @@
 version: '3.6'
 networks:
-  selenoid_actions:
-    driver: bridge
+  default:
+    external:
+      name: selenoid_actions
 
 services:
 
