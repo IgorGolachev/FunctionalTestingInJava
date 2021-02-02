@@ -21,6 +21,7 @@ services:
 
   selenoid:
     container_name: selenoid
+    hostname: selenoid
     #network_mode: bridge
     image: aerokube/selenoid:latest-release
     volumes:
@@ -36,6 +37,4 @@ services:
     ports:
       - "4444:4444"
     networks:
-      selenoid_actions:
-        aliases:
-          - selenoid
+      - selenoid_actions
