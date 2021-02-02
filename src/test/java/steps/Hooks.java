@@ -14,7 +14,6 @@ public final class Hooks {
 
         Configuration.browser = "chrome";
         Configuration.timeout = 5000;
-        //Configuration.remote = "http://172.17.0.2:4444/wd/hub";
         Configuration.remote = "http://selenoid:4444/wd/hub";
         Configuration.browserSize = "1920x1080";
 

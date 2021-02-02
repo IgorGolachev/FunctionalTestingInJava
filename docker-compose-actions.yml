@@ -13,8 +13,8 @@ services:
       - selenoid
     ports:
       - "5432:5432"
-    depends_on:
-      - "selenoid"
+    #depends_on:
+     # - "selenoid"
 
   selenoid:
     network_mode: bridge
