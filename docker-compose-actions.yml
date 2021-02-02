@@ -13,11 +13,8 @@ services:
       - "5432:5432"
     depends_on:
       - "selenoid"
-    extra_hosts:
-      - "selenoid:10.10.10.1"
     networks:
-      selenoid:
-        ipv4_address: "10.10.10.2"
+      - selenoid_actions
 
   selenoid:
     container_name: selenoid
@@ -36,12 +33,10 @@ services:
     ports:
       - "4444:4444"
     networks:
-      selenoid:
-        ipv4_address: "10.10.10.1"
+      selenoid_actions:
+        aliases:
+          - selenoid
 
-networks:
-  selenoid:
-    driver: bridge
-      ipam:
-        config:
-          - subnet: 10.10.100.0/24
+  networks:
+    selenoid_actions:
+      driver: bridge
