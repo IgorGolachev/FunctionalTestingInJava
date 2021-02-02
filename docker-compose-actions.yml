@@ -3,7 +3,7 @@ version: '3'
 services:
 
   selenide-tests:
-    #network_mode: bridge
+    network_mode: bridge
     build: .
     volumes:
       - "./report:/home/gradle/src/report"
