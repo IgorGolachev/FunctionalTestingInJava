@@ -1,13 +1,9 @@
-version: '3.6'
-networks:
-  selenoid_actions:
-    external: true
+version: '3'
 
 services:
 
   selenide-tests:
     container_name: tests
-    #network_mode: bridge
     build: .
     volumes:
       - "./report:/home/gradle/src/report"
@@ -17,12 +13,10 @@ services:
     depends_on:
       - "selenoid"
     networks:
-      - selenoid_actions
+      - selenoid-actions
 
   selenoid:
     container_name: selenoid
-    hostname: selenoid
-    #network_mode: bridge
     image: aerokube/selenoid:latest-release
     volumes:
       - "$PWD/config:/etc/selenoid/"
@@ -37,4 +31,10 @@ services:
     ports:
       - "4444:4444"
     networks:
-      - selenoid_actions
+      - selenoid-actions
+
+networks:
+  selenoid-actions:
+    driver: bridge
+    ipam:
+      driver: default
