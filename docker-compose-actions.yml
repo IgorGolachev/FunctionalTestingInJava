@@ -12,8 +12,7 @@ services:
       - "5432:5432"
     depends_on:
       - "selenoid"
-    networks:
-      - selenoid-actions
+    network_mode: service:selenoid
 
   selenoid:
     container_name: selenoid
@@ -30,11 +29,3 @@ services:
     ]
     ports:
       - "4444:4444"
-    networks:
-      - selenoid-actions
-
-networks:
-  selenoid-actions:
-    driver: bridge
-    ipam:
-      driver: default
