@@ -8,8 +8,8 @@ services:
     volumes:
       - "./report:/home/gradle/src/report"
     command: bash -c "gradle test"
-    ports:
-      - "5432:5432"
+    #ports:
+     # - "5432:5432"
     depends_on:
       - "selenoid"
     network_mode: service:selenoid
