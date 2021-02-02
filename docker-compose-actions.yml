@@ -1,4 +1,7 @@
 version: '3.6'
+networks:
+  selenoid_actions:
+    driver: bridge
 
 services:
 
@@ -36,7 +39,3 @@ services:
       selenoid_actions:
         aliases:
           - selenoid
-
-  networks:
-    selenoid_actions:
-      driver: bridge
