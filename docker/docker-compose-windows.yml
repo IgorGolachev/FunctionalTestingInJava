@@ -1,21 +1,21 @@
-version: '3.6'
+version: '3'
 
 services:
 
   selenide-tests:
-    container_name: tests
     network_mode: bridge
-    build: .
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
     volumes:
       - "./report:/home/gradle/src/report"
     command: bash -c "gradle test"
+    links:
+      - selenoid
     ports:
       - "5432:5432"
-    depends_on:
-      - "selenoid"
 
   selenoid:
-    container_name: selenoid
     network_mode: bridge
     image: aerokube/selenoid:latest-release
     volumes:

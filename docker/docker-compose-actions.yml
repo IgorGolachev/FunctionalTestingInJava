@@ -4,7 +4,9 @@ services:
 
   selenide-tests:
     network_mode: bridge
-    build: .
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
     volumes:
       - "./report:/home/gradle/src/report"
     command: bash -c "gradle test"

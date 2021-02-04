@@ -25,11 +25,11 @@ jobs:
       run: mkdir report && chmod 777 report
 
     - name: Start Selenoid
-      run: docker-compose -f docker-compose-actions.yml up --build --abort-on-container-exit
+      run: docker-compose -f docker/docker-compose-actions.yml up --build --abort-on-container-exit
 
     - name: Stop Selenoid
       if: ${{ always() }}
-      run: docker-compose -f docker-compose-actions.yml down
+      run: docker-compose -f docker/docker-compose-actions.yml down
 
     - name: Upload report as artifact
       if: ${{ always() }}
