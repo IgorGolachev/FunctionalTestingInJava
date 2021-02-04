@@ -5,7 +5,7 @@ services:
   selenide-tests:
     network_mode: bridge
     build:
-      context: .
+      context: ../
       dockerfile: Dockerfile
     volumes:
       - "./report:/home/gradle/src/report"
