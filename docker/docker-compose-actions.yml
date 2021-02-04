@@ -6,7 +6,7 @@ services:
     network_mode: bridge
     build:
       context: ../
-      dockerfile: Dockerfile
+      dockerfile: docker/Dockerfile
     volumes:
       - "./report:/home/gradle/src/report"
     command: bash -c "gradle test"
