@@ -24,6 +24,11 @@ public class CreateAccountPageDef {
         page.setPersonalInformation(personalInfo);
     }
 
+    @And("Set {string} as birth date")
+    public void setBirthDate(String birthDate){
+        page.SetBirthDate(birthDate);
+    }
+
     @And("Fill out your address with values")
     public void fillOutYourAddressForm(DataTable data) {
         Map<String, String> addressInfo = data.transpose().asMap(String.class, String.class);

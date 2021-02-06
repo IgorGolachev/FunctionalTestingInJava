@@ -3,7 +3,9 @@ package steps;
 import exception.ElementValidatedException;
 import exception.NoSuchFieldException;
 import pages.CreateAccountPage;
+import util.DateTimeUtils;
 
+import java.time.LocalDate;
 import java.util.Map;
 
 import static com.codeborne.selenide.Condition.text;
@@ -26,6 +28,14 @@ public class CreateAccountSteps {
         for (String key : personalInfo.keySet()) {
             ui.personalInformation.setFieldValueByName(key, personalInfo.get(key));
         }
+        return this;
+    }
+
+    public CreateAccountSteps SetBirthDate(String birthDate) {
+        LocalDate parsedDate = DateTimeUtils.parseDate(birthDate);
+        ui.personalInformation.daySelect.setValue(String.valueOf(parsedDate.getDayOfMonth()));
+        ui.personalInformation.monthSelect.setValue(String.valueOf(parsedDate.getMonthValue()));
+        ui.personalInformation.yearsSelect.setValue(String.valueOf(parsedDate.getYear()));
         return this;
     }
 }

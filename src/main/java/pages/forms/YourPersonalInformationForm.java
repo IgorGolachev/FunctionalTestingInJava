@@ -1,9 +1,6 @@
 package pages.forms;
 
-import elements.Checkbox;
-import elements.FormInput;
-import elements.RadioButton;
-import elements.WrappedElement;
+import elements.*;
 import exception.ElementValidatedException;
 import exception.NoSuchFieldException;
 import interfaces.ElementValidator;
@@ -23,6 +20,10 @@ public class YourPersonalInformationForm {
 
     public final Checkbox newsletterCheckbox = new Checkbox("input[id='newsletter']");
     public final Checkbox offerCheckbox = new Checkbox("input[id='optin']");
+
+    public final Select daySelect = new Select("select[id='days']");
+    public final Select monthSelect = new Select("select[id='months']");
+    public final Select yearsSelect = new Select("select[id='years']");
 
     public YourPersonalInformationForm setFieldValueByName(String fieldName, String value)
             throws NoSuchFieldException, ElementValidatedException {

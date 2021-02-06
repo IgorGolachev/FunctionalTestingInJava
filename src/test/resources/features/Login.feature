@@ -17,8 +17,7 @@ Feature: Login
     And Fill out your personal information with values
       | Mr   | FirstName | LastName | Newsletter | SpecialOffer |
       | True | Igor      | Golachev | True       | True         |
-      # DateOfBirth
-      # 31-10-1984
+    And Set "31-10-1984" as birth date
     #And Fill out your address with values
      # | FirstName | LastName | Company     | Address    | AddressLine2 | City   | State         | Zip   |
       #| Igor      | Golachev | SomeCompany | SomeStreet | SomeAddress  | Boston | Massachussets | 02760 |
