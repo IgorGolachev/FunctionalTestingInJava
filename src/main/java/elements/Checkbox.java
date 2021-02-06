@@ -3,25 +3,31 @@ package elements;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import interfaces.ElementValidator;
+import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 
-public final class FormInput extends WrappedElement implements ElementValidator {
+public final class Checkbox extends WrappedElement implements ElementValidator {
 
     @Override
-    public SelenideElement setValue(String text) {
-        super.clear();
-        return super.setValue(text);
+    public SelenideElement setValue(String checkBoxState) {
+        if (!checkBoxState.equalsIgnoreCase(String.valueOf(ifTicked())))
+            super.click();
+        return super.element;
+    }
+
+    private boolean ifTicked() {
+        return this.parent().getAttribute("class").equals("checked");
     }
 
     @Override
     public boolean isValidationFailed() {
-        checkValidation("form-group form-error");
+        checkValidation(StringUtils.EMPTY);
         return true;
     }
 
     @Override
     public boolean isValidationPassed() {
-        checkValidation("form-group form-ok");
+        checkValidation("checked");
         return true;
     }
 
@@ -31,15 +37,16 @@ public final class FormInput extends WrappedElement implements ElementValidator 
                 ELEMENT_TIMEOUT);
     }
 
-    public FormInput(String path) {
+    public Checkbox(String path) {
         super(path);
     }
 
-    public FormInput(By by) {
+    public Checkbox(By by) {
         super(by);
     }
 
-    public FormInput(SelenideElement element) {
+    public Checkbox(SelenideElement element) {
         super(element);
     }
+
 }

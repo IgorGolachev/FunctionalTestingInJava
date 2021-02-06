@@ -15,10 +15,10 @@ Feature: Login
     When Create a new account with random email
     Then Create Account Page is loaded
     And Fill out your personal information with values
-      | Mr   | FirstName | LastName |
-      | True | Igor      | Golachev |
-      #| Mr   | FirstName | LastName | DateOfBirth | Newsletter | SpecialOffer |
-      #| True | Igor      | Golachev | 31-10-1984  | True       | True         |
+      | Mr   | FirstName | LastName | Newsletter | SpecialOffer |
+      | True | Igor      | Golachev | True       | True         |
+      # DateOfBirth
+      # 31-10-1984
     #And Fill out your address with values
      # | FirstName | LastName | Company     | Address    | AddressLine2 | City   | State         | Zip   |
       #| Igor      | Golachev | SomeCompany | SomeStreet | SomeAddress  | Boston | Massachussets | 02760 |

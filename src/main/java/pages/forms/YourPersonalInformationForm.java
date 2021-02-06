@@ -1,5 +1,6 @@
 package pages.forms;
 
+import elements.Checkbox;
 import elements.FormInput;
 import elements.RadioButton;
 import elements.WrappedElement;
@@ -20,6 +21,9 @@ public class YourPersonalInformationForm {
     public final FormInput firstNameInput = new FormInput("input[id='customer_firstname']");
     public final FormInput lastNameInput = new FormInput("input[id='customer_lastname']");
 
+    public final Checkbox newsletterCheckbox = new Checkbox("input[id='newsletter']");
+    public final Checkbox offerCheckbox = new Checkbox("input[id='optin']");
+
     public YourPersonalInformationForm setFieldValueByName(String fieldName, String value)
             throws NoSuchFieldException, ElementValidatedException {
         WrappedElement element = FORM_FIELDS.get(fieldName);
@@ -39,5 +43,7 @@ public class YourPersonalInformationForm {
         FORM_FIELDS.put("Mrs", titleMrsRadioButton);
         FORM_FIELDS.put("FirstName", firstNameInput);
         FORM_FIELDS.put("LastName", lastNameInput);
+        FORM_FIELDS.put("Newsletter", newsletterCheckbox);
+        FORM_FIELDS.put("SpecialOffer", offerCheckbox);
     }
 }

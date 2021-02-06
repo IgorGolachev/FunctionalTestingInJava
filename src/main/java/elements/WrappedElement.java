@@ -7,8 +7,12 @@ import org.openqa.selenium.By;
 import lombok.experimental.Delegate;
 import lombok.Builder;
 
+import java.time.Duration;
+
 @Builder
 public class WrappedElement {
+
+    public static final Duration ELEMENT_TIMEOUT = Duration.ofMillis(3000);
 
     // This constructor is able to process css or xpath only
     public WrappedElement(String path) {
