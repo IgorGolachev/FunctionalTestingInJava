@@ -1,10 +1,11 @@
-package steps;
+package definitions;
 
 import context.Context;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.datatable.DataTable;
 import org.apache.commons.lang3.RandomStringUtils;
+import steps.SignInPageSteps;
 
 import java.util.Map;
 
@@ -23,11 +24,15 @@ public final class SignInPageDef {
         page.signInWithCredentials(credentials);
     }
 
-    @When("Create a new account with random email")
+    @When("Create a new account with a random email")
     public void createAccountWithRandomEmail() {
         String email = String.format("Auto_%s@mail.com", RandomStringUtils.randomAlphabetic(5));
+        String password = RandomStringUtils.randomAlphabetic(8);
+
         page.specifyNewEmail(email);
-        Context.put("email", email);
         page.clickCreateAccountButton();
+
+        Context.put("email", email);
+        Context.put("password", password);
     }
 }

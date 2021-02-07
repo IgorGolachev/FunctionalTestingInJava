@@ -2,6 +2,7 @@ package steps;
 
 import exception.ElementValidatedException;
 import exception.NoSuchFieldException;
+import org.apache.commons.lang3.StringUtils;
 import pages.CreateAccountPage;
 import util.DateTimeUtils;
 
@@ -25,16 +26,30 @@ public class CreateAccountSteps {
 
     public CreateAccountSteps setPersonalInformation(Map<String, String> personalInfo)
             throws NoSuchFieldException, ElementValidatedException {
-        for (String key : personalInfo.keySet()) {
-            ui.personalInformation.setFieldValueByName(key, personalInfo.get(key));
-        }
+        ui.personalInformation.setFieldValues(personalInfo);
         return this;
     }
 
-    public CreateAccountSteps SetBirthDate(String birthDate) {
+    public CreateAccountSteps setAddressInformation(Map<String, String> addressInfo)
+            throws NoSuchFieldException, ElementValidatedException {
+        ui.addressInformation.setFieldValues(addressInfo);
+        return this;
+    }
+
+    public CreateAccountSteps submitAccount() {
+        ui.registerButton.click();
+        return this;
+    }
+
+    public CreateAccountSteps setBirthDate(String birthDate) {
         LocalDate parsedDate = DateTimeUtils.parseDate(birthDate);
+
         ui.personalInformation.daySelect.setValue(String.valueOf(parsedDate.getDayOfMonth()));
-        ui.personalInformation.monthSelect.setValue(String.valueOf(parsedDate.getMonthValue()));
+
+        String monthName = parsedDate.getMonth().name();
+        monthName = StringUtils.capitalize(monthName.toLowerCase());
+        ui.personalInformation.monthSelect.setValue(monthName);
+
         ui.personalInformation.yearsSelect.setValue(String.valueOf(parsedDate.getYear()));
         return this;
     }
