@@ -4,7 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import steps.BasePageSteps;
 
-public final class BasePageDef {
+public final class BaseStepDef {
 
     private final BasePageSteps page = new BasePageSteps();
 

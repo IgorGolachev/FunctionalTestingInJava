@@ -7,7 +7,7 @@ import com.codeborne.selenide.Configuration;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
-public final class Hooks {
+public final class HooksStepDef {
 
     @Before
     public void setUp() {

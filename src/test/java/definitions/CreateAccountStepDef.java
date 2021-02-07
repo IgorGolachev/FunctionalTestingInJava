@@ -11,7 +11,7 @@ import steps.CreateAccountSteps;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CreateAccountPageDef {
+public class CreateAccountStepDef {
 
     private final CreateAccountSteps page = new CreateAccountSteps();
 
@@ -36,7 +36,7 @@ public class CreateAccountPageDef {
     }
 
     @And("Set {string} as birth date")
-    public void setBirthDate(String birthDate){
+    public void setBirthDate(String birthDate) {
         page.setBirthDate(birthDate);
     }
 

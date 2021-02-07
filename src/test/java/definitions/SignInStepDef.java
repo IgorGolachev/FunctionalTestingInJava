@@ -9,7 +9,7 @@ import steps.SignInPageSteps;
 
 import java.util.Map;
 
-public final class SignInPageDef {
+public final class SignInStepDef {
 
     private final SignInPageSteps page = new SignInPageSteps();
 

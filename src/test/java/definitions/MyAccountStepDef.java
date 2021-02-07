@@ -4,7 +4,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import steps.MyAccountSteps;
 
-public class MyAccountPageDef {
+public class MyAccountStepDef {
 
     private final MyAccountSteps page = new MyAccountSteps();
 
