@@ -7,7 +7,7 @@ public final class Select extends WrappedElement {
 
     @Override
     public SelenideElement setValue(String option) {
-        super.selectOption(option);
+        super.selectOptionByValue(option);
         return super.element;
     }
 
