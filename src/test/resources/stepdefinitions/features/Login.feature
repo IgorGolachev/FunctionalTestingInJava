@@ -31,3 +31,4 @@ Feature: Login
     Then Verify current user is "Igor Golachev"
     And My Account Page Is Loaded
     When Click My Personal Information Button
+    Then Your Personal Information Page Is Loaded

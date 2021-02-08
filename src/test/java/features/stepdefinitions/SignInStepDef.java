@@ -1,4 +1,4 @@
-package definitions;
+package features.stepdefinitions;
 
 import context.Context;
 import io.cucumber.java.en.Then;

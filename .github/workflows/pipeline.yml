@@ -24,10 +24,10 @@ jobs:
     - name: Create Cucumber report folder with write permissions
       run: mkdir report && chmod 777 report
 
-    - name: Start Selenoid
+    - name: Start testing with Selenoid (via docker compose up)
       run: docker-compose -f docker/docker-compose-actions.yml up --build --abort-on-container-exit
 
-    - name: Stop Selenoid
+    - name: Stop testing with Selenoid (via docker compose down)
       if: ${{ always() }}
       run: docker-compose -f docker/docker-compose-actions.yml down
 

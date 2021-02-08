@@ -1,4 +1,4 @@
-package definitions;
+package features.stepdefinitions;
 
 import io.cucumber.java.en.Then;
 import steps.YourPersonalInformationSteps;

@@ -1,4 +1,4 @@
-package definitions;
+package features.stepdefinitions;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -24,6 +24,5 @@ public final class HooksStepDef {
     public void tearDown() {
         closeWebDriver();
     }
-
 
 }
