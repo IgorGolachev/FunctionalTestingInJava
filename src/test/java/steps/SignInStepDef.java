@@ -1,11 +1,10 @@
-package features.stepdefinitions;
+package steps;
 
 import context.Context;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.datatable.DataTable;
 import org.apache.commons.lang3.RandomStringUtils;
-import steps.SignInPageSteps;
 
 import java.util.Map;
 

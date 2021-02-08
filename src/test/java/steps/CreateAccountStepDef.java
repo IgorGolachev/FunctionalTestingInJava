@@ -1,4 +1,4 @@
-package features.stepdefinitions;
+package steps;
 
 import context.Context;
 import exception.ElementValidatedException;
@@ -6,7 +6,6 @@ import exception.NoSuchFieldException;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.And;
-import steps.CreateAccountSteps;
 
 import java.util.HashMap;
 import java.util.Map;

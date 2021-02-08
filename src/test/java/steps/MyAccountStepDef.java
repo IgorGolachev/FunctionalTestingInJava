@@ -1,8 +1,7 @@
-package features.stepdefinitions;
+package steps;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import steps.MyAccountSteps;
 
 public class MyAccountStepDef {
 

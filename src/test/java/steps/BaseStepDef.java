@@ -1,8 +1,7 @@
-package features.stepdefinitions;
+package steps;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import steps.BasePageSteps;
 
 public final class BaseStepDef {
 
