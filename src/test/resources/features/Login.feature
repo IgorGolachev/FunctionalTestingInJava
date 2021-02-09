@@ -32,3 +32,6 @@ Feature: Login
     And My Account Page Is Loaded
     When Click My Personal Information Button
     Then Your Personal Information Page Is Loaded
+    And Personal Information is as following
+      | Mr   | FirstName | LastName | Newsletter | SpecialOffer |
+      | True | Igor      | Golachev | True       | True         |

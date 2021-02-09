@@ -3,6 +3,7 @@ package elements;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import interfaces.ElementValidator;
+import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 
 public final class FormInput extends WrappedElement implements ElementValidator {
@@ -11,6 +12,12 @@ public final class FormInput extends WrappedElement implements ElementValidator 
     public SelenideElement setValue(String text) {
         super.clear();
         return super.setValue(text);
+    }
+
+    @Override
+    public FormInput verifyElementHasValue(String expectedValue) {
+        super.element.shouldHave(Condition.cssValue("value", expectedValue));
+        return this;
     }
 
     @Override

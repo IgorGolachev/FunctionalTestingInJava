@@ -2,7 +2,7 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import pages.forms.YourAddressInformationForm;
-import pages.forms.YourPersonalInformationForm;
+import pages.forms.RegistrationForm;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -12,6 +12,6 @@ public class CreateAccountPage {
     public final SelenideElement breadCrumbs = $("a[class='home'] ~ span ~ span");
     public final SelenideElement registerButton = $("button[id='submitAccount']");
 
-    public final YourPersonalInformationForm personalInformation = new YourPersonalInformationForm();
+    public final RegistrationForm personalInformation = new RegistrationForm();
     public final YourAddressInformationForm addressInformation = new YourAddressInformationForm();
 }

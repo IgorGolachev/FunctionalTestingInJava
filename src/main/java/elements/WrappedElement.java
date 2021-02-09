@@ -23,6 +23,11 @@ public class WrappedElement {
         }
     }
 
+    protected WrappedElement verifyElementHasValue(String value) {
+        System.out.println("default implementation for value field check");
+        return this;
+    }
+
     public WrappedElement(By by) {
         this.element = Selenide.$(by);
     }

@@ -15,6 +15,23 @@ public final class RadioButton extends WrappedElement implements ElementValidato
     }
 
     @Override
+    public RadioButton verifyElementHasValue(String value) {
+
+        if (!String.valueOf(Boolean.TRUE).equalsIgnoreCase(value) &&
+                !String.valueOf(Boolean.TRUE).equalsIgnoreCase(value))
+            throw new IllegalArgumentException("Provided Radio Button value cannot be handled as boolean");
+
+        SelenideElement parent = super.element.parent();
+
+        if (String.valueOf(Boolean.TRUE).equalsIgnoreCase(value))
+            parent.shouldHave(Condition.cssClass("checked"));
+        else
+            parent.shouldHave(Condition.attributeMatching("class", StringUtils.EMPTY));
+
+        return this;
+    }
+
+    @Override
     public boolean isValidationFailed() {
         checkValidation(StringUtils.EMPTY);
         return true;

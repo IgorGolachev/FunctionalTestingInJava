@@ -15,6 +15,23 @@ public final class Checkbox extends WrappedElement implements ElementValidator {
         return super.element;
     }
 
+    @Override
+    public Checkbox verifyElementHasValue(String value) {
+
+        if (!String.valueOf(Boolean.TRUE).equalsIgnoreCase(value) &&
+                !String.valueOf(Boolean.TRUE).equalsIgnoreCase(value))
+            throw new IllegalArgumentException("Provided Checkbox value cannot be handled as boolean");
+
+        SelenideElement parent = super.element.parent();
+
+        if (String.valueOf(Boolean.TRUE).equalsIgnoreCase(value))
+            parent.shouldHave(Condition.cssClass("checked"));
+        else
+            parent.shouldHave(Condition.attributeMatching("class", StringUtils.EMPTY));
+
+        return this;
+    }
+
     private boolean ifTicked() {
         return this.parent().getAttribute("class").equals("checked");
     }
