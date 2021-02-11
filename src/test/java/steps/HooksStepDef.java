@@ -14,8 +14,10 @@ public final class HooksStepDef {
 
         Configuration.browser = "chrome";
         Configuration.timeout = 5000;
-        Configuration.remote = "http://selenoid:4444/wd/hub";
         Configuration.browserSize = "1920x1080";
+
+        if (String.valueOf(Boolean.TRUE).equalsIgnoreCase(System.getProperty("REMOTE")))
+            Configuration.remote = "http://selenoid:4444/wd/hub";
 
         open("http://automationpractice.com/index.php");
     }
