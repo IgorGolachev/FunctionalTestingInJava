@@ -19,7 +19,7 @@ services:
     network_mode: bridge
     image: aerokube/selenoid:latest-release
     volumes:
-      - "./config:/etc/selenoid:ro"
+      - "../config:/etc/selenoid:ro"
       - "//var/run/docker.sock:/var/run/docker.sock"
     command: [
         "-conf", "/etc/selenoid/browsers-local.json",

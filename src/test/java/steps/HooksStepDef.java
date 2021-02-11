@@ -16,7 +16,7 @@ public final class HooksStepDef {
         Configuration.timeout = 5000;
         Configuration.browserSize = "1920x1080";
 
-        if (String.valueOf(Boolean.TRUE).equalsIgnoreCase(System.getenv("REMOTE")))
+        if (String.valueOf(Boolean.TRUE).equalsIgnoreCase(System.getenv("REMOTE_RUN")))
             Configuration.remote = "http://selenoid:4444/wd/hub";
 
         open("http://automationpractice.com/index.php");
