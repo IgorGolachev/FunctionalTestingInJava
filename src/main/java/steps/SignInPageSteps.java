@@ -1,7 +1,9 @@
 package steps;
 
+import java.time.Duration;
 import java.util.Map;
 
+import com.codeborne.selenide.Condition;
 import pages.SignInPage;
 
 import static com.codeborne.selenide.Selenide.page;
@@ -34,6 +36,7 @@ public final class SignInPageSteps {
 
     public SignInPageSteps clickCreateAccountButton() {
         ui.createAccountButton.click();
+        ui.createAccountButton.shouldNotBe(Condition.visible, Duration.ofMillis(10000));
         return this;
     }
 }
