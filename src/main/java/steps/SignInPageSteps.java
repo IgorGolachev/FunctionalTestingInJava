@@ -25,6 +25,7 @@ public final class SignInPageSteps {
         ui.emailInput.setValue(credentials.get("Email"));
         ui.passwordInput.setValue(credentials.get("Password"));
         ui.signInButton.click();
+        ui.signInButton.shouldNotBe(Condition.visible, Duration.ofMillis(7000));
         return this;
     }
 

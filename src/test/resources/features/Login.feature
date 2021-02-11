@@ -1,7 +1,7 @@
 Feature: Login
 
   @Smoke
-  Scenario: Create an account
+  Scenario: Login as user
     Given Click Sing In Button
     When Sign In Page is loaded
     And Sign in with credentials
