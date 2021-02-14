@@ -1,5 +1,6 @@
 package steps;
 
+import com.codeborne.selenide.Condition;
 import pages.BasePage;
 
 import static com.codeborne.selenide.Condition.text;
@@ -10,7 +11,7 @@ public final class BasePageSteps {
     private final BasePage ui = page(BasePage.class);
 
     public BasePageSteps clickLoginButton() {
-        ui.signInButton.click();
+        ui.signInButton.shouldBe(Condition.visible).click();
         return this;
     }
 
