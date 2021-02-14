@@ -9,7 +9,6 @@ Feature: Login
       | test@test.org | test_pass! |
     Then Verify current user is "Igor Golachev"
 
-
   @Smoke
   Scenario: Create an account and login
     Given Click Sing In Button
