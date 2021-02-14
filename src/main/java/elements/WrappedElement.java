@@ -1,13 +1,12 @@
 package elements;
 
+import java.time.Duration;
+import org.openqa.selenium.By;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
 
 import lombok.experimental.Delegate;
 import lombok.Builder;
-
-import java.time.Duration;
 
 @Builder
 public class WrappedElement {
