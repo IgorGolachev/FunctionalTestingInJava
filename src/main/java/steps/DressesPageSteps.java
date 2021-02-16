@@ -18,7 +18,7 @@ public final class DressesPageSteps {
     }
 
     public DressesPageSteps addDressesToBasket(Map<String, String> dressesToBuy) {
-        dressesToBuy.forEach((k, v) -> System.out.println((k + ":" + v)));
+        dressesToBuy.forEach((dress, price) -> ui.productList.selectItem(dress, price));
         return this;
     }
 }

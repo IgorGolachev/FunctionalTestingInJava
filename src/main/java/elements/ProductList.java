@@ -4,13 +4,26 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.codeborne.selenide.ElementsCollection;
-import org.openqa.selenium.By;
-import com.codeborne.selenide.SelenideElement;
 
 public final class ProductList extends WrappedElement {
 
     private List<Product> visibleProducts;
     private List<Product> inStockProducts;
+
+    public ProductList selectItem(String productName, String price) {
+
+        Product item = inStockProducts.stream()
+                .filter(product -> productName.equalsIgnoreCase(product.name))
+                .filter(product -> price.equalsIgnoreCase(product.price))
+                .findAny()
+                .orElse(null);
+
+        if (item == null)
+            throw new IllegalArgumentException("Product is not found or not in stock");
+
+        item.AddToBasketAndContinue();
+        return this;
+    }
 
     public ProductList(String path) {
         super(path);
@@ -18,6 +31,7 @@ public final class ProductList extends WrappedElement {
     }
 
     private ProductList setProducts() {
+
         ElementsCollection productsContainers = super.$$("div[class='product-container']");
 
         if (productsContainers.isEmpty())
@@ -33,15 +47,5 @@ public final class ProductList extends WrappedElement {
                 .collect(Collectors.toList()));
 
         return this;
-    }
-
-    public ProductList(By by) {
-        super(by);
-        setProducts();
-    }
-
-    public ProductList(SelenideElement element) {
-        super(element);
-        setProducts();
     }
 }
