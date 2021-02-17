@@ -6,8 +6,8 @@ import org.openqa.selenium.By;
 
 public final class Product extends WrappedElement {
 
-    public String name = element.$("h5[itemprop='name'] a[class='product-name']").getAttribute("title");
-    public String price = element.$("span[itemprop='price']").getText().trim();
+    public String name = element.find("h5[itemprop='name'] a[class='product-name']").getAttribute("title");
+    public String price = element.find("span[itemprop='price']").getText().trim();
 
     public boolean verifyIsInStock() {
         return super.$("div span span[class='available-now']").

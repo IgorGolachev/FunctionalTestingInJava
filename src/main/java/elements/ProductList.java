@@ -1,5 +1,6 @@
 package elements;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -7,8 +8,27 @@ import com.codeborne.selenide.ElementsCollection;
 
 public final class ProductList extends WrappedElement {
 
-    private List<Product> visibleProducts;
-    private List<Product> inStockProducts;
+    private List<Product> inStockProducts = setProducts();
+
+    private List<Product> setProducts() {
+
+        ElementsCollection productsContainers = element.findAll("div[class='product-container']");
+
+        if (productsContainers.isEmpty())
+            throw new IllegalArgumentException("There are no products on the page");
+
+        List<Product> visibleProducts = new ArrayList<>();
+        for (var container : productsContainers) {
+            visibleProducts.add(new Product(container));
+        }
+
+        inStockProducts.addAll(visibleProducts
+                .stream()
+                .filter(Product::verifyIsInStock)
+                .collect(Collectors.toList()));
+
+        return inStockProducts;
+    }
 
     public ProductList selectItem(String productName, String price) {
 
@@ -27,25 +47,5 @@ public final class ProductList extends WrappedElement {
 
     public ProductList(String path) {
         super(path);
-        setProducts();
-    }
-
-    private ProductList setProducts() {
-
-        ElementsCollection productsContainers = super.$$("div[class='product-container']");
-
-        if (productsContainers.isEmpty())
-            throw new IllegalArgumentException("There are no products on the page");
-
-        for (var container : productsContainers) {
-            visibleProducts.add(new Product(container));
-        }
-
-        inStockProducts.addAll(visibleProducts
-                .stream()
-                .filter(Product::verifyIsInStock)
-                .collect(Collectors.toList()));
-
-        return this;
     }
 }
