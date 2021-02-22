@@ -15,6 +15,12 @@ public final class BasePageSteps {
         return this;
     }
 
+    public BasePageSteps accessBasketAndCheckOut() {
+        ui.basketLink.hover();
+        ui.checkOutLink.shouldBe(Condition.enabled).click();
+        return this;
+    }
+
     public BasePageSteps selectDressesDepartment() {
         ui.dressesLink.shouldBe(Condition.visible).click();
         return this;

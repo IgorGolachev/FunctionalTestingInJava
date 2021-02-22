@@ -16,3 +16,8 @@ Feature: Login
       | Product              | Price  |
       | Printed Dress        | $26.00 |
       | Printed Summer Dress | $30.50 |
+    And Access basket and go to check out
+    #Then Verify Summary is correct for the following products
+    #  | Product              | Price  |
+    #  | Printed Dress        | $26.00 |
+    #  | Printed Summer Dress | $30.50 |

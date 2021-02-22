@@ -3,6 +3,7 @@ package steps;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.en_scouse.An;
 
 public final class BaseStepDef {
 
@@ -21,5 +22,10 @@ public final class BaseStepDef {
     @Then("Verify current user is {string}")
     public void verifyUserIsLoggedIn(String userName) {
         page.verifyCurrentUserIs(userName);
+    }
+
+    @An("Access basket and go to check out")
+    public void accessBasketAndCheckOut() {
+        page.accessBasketAndCheckOut();
     }
 }

@@ -2,6 +2,7 @@ package steps;
 
 import pages.DressesPage;
 
+import java.util.List;
 import java.util.Map;
 
 import static com.codeborne.selenide.Condition.text;
@@ -17,8 +18,8 @@ public final class DressesPageSteps {
         return this;
     }
 
-    public DressesPageSteps addDressesToBasket(Map<String, String> dressesToBuy) {
-        dressesToBuy.forEach((dress, price) -> ui.productList.selectItem(dress, price));
+    public DressesPageSteps addDressesToBasket(List<Map<String, String>> dressesToBuy) {
+        dressesToBuy.forEach(dress -> ui.productList.selectItem(dress.get("Product"), dress.get("Price")));
         return this;
     }
 }

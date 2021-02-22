@@ -12,16 +12,15 @@ public final class ProductList extends WrappedElement {
 
     private List<Product> setProducts() {
 
-        ElementsCollection productsContainers = element.findAll("div[class='product-container']");
+        ElementsCollection productsContainers = element.$$("div[class='product-container']");
 
         if (productsContainers.isEmpty())
             throw new IllegalArgumentException("There are no products on the page");
 
         List<Product> visibleProducts = new ArrayList<>();
-        for (var container : productsContainers) {
-            visibleProducts.add(new Product(container));
-        }
+        productsContainers.forEach(container -> visibleProducts.add(new Product(container)));
 
+        inStockProducts = new ArrayList<>();
         inStockProducts.addAll(visibleProducts
                 .stream()
                 .filter(Product::verifyIsInStock)
