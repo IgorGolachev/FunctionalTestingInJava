@@ -9,7 +9,12 @@ import java.util.Map;
 
 public final class CheckOutTable extends WrappedElement {
 
-    private List<Map<String, String>> items = setItems();
+    private final List<Map<String, String>> items = setItems();
+
+    public final String totalProducts = element.$("tfoot tr[class='cart_total_price'] td[id='total_product']").getText();
+    public final String totalShipping = element.$("tfoot tr[class='cart_total_delivery'] td[id='total_shipping']").getText();
+    public final String total = element.$("tfoot tr[class='cart_total_price'] td[id='total_price_without_tax']").getText();
+    public final String tax = element.$("tfoot tr[class='cart_total_tax'] td[id='total_tax']").getText();
 
     private List<Map<String, String>> setItems() {
 

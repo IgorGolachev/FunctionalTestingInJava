@@ -10,6 +10,6 @@ public class CheckOutSummaryPage {
     public final SelenideElement pageHeader = $("h1[class='page-heading']");
     public final SelenideElement breadCrumbs = $("a[class='home'] ~ span ~ span");
 
-    public final CheckOutTable productTable = new CheckOutTable("table[id='cart_summary']");
+    public final CheckOutTable checkOutTable = new CheckOutTable("table[id='cart_summary']");
 
 }

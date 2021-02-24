@@ -22,3 +22,6 @@ Feature: Login
       | Product              | Price  |
       | Printed Dress        | $26.00 |
       | Printed Summer Dress | $30.50 |
+    And Verify Totals of CheckOut Summary page
+      | Total products | Total shipping | Total  | Tax   |
+      | $56.50         | $2.00          | $58.50 | $0.00 |
