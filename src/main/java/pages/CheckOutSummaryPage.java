@@ -11,5 +11,6 @@ public class CheckOutSummaryPage {
     public final SelenideElement breadCrumbs = $("a[class='home'] ~ span ~ span");
 
     public final CheckOutTable checkOutTable = new CheckOutTable("table[id='cart_summary']");
+    public final SelenideElement proceedToCheckoutLink = $("p a[title='Proceed to checkout'] span");
 
 }

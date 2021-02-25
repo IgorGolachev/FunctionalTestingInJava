@@ -4,6 +4,7 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 import java.text.ParseException;
 import java.util.List;
@@ -28,5 +29,10 @@ public class CheckOutSummaryStepDef {
     public void verifyTotals(DataTable data) throws ParseException {
         Map<String, String> totals = data.transpose().asMap(String.class, String.class);
         page.verifyTotals(totals);
+    }
+
+    @When("Proceed to checkout")
+    public void proceedToCheckOut() {
+        page.proceedToCheckOut();
     }
 }

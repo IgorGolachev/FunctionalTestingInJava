@@ -1,26 +1,21 @@
 package steps;
 
 import org.assertj.core.api.SoftAssertions;
-import org.hamcrest.core.Is;
-import org.hamcrest.core.IsEqual;
 import pages.CheckOutSummaryPage;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.*;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.page;
+import static org.assertj.core.api.Assertions.*;
 
 public class CheckOutSummarySteps {
 
-    private SoftAssertions softly = new SoftAssertions();
+    private final SoftAssertions softly = new SoftAssertions();
     private final CheckOutSummaryPage ui = page(CheckOutSummaryPage.class);
 
     public CheckOutSummarySteps verifyThePageIsLoaded() {
@@ -39,18 +34,25 @@ public class CheckOutSummarySteps {
 
     public CheckOutSummarySteps verifyTotals(Map<String, String> totals) throws ParseException {
 
-        List<String> prices = new ArrayList<>();
-        ui.checkOutTable.getItems().forEach(map -> prices.add(map.get("Price")));
         List<BigDecimal> parsedPrices = new ArrayList<>();
-        prices.forEach(price -> {
+        ui.checkOutTable.getItems().forEach(map -> {
             try {
+                String price = map.get("Price");
                 parsedPrices.add(parse(price));
             } catch (ParseException e) {
-                throw new IllegalArgumentException(String.format("The %s price cannot be parsed", price));
+                throw new IllegalArgumentException(String.format("The provided %s price cannot be parsed", map.get("Price")));
             }
         });
-        parsedPrices.stream().reduce(BigDecimal::add);
-        softly.assertThat(totals.get("Total products")).isEqualTo(prices);
+        Optional<BigDecimal> sum = parsedPrices.stream().reduce(BigDecimal::add);
+        assertThat(parse(totals.get("Total products"))).isEqualTo(sum.get());
+        assertThat(parse(totals.get("Total shipping"))).isEqualTo(new BigDecimal("2.00"));
+        assertThat(parse(totals.get("Total"))).isEqualTo(new BigDecimal("2.00").add(sum.get()));
+        assertThat(parse(totals.get("Tax"))).isEqualTo(new BigDecimal("0.00"));
+        return this;
+    }
+
+    public CheckOutSummarySteps proceedToCheckOut() {
+        ui.proceedToCheckoutLink.click();
         return this;
     }
 
@@ -60,6 +62,6 @@ public class CheckOutSummarySteps {
             ((DecimalFormat) format).setParseBigDecimal(true);
         }
 
-        return (BigDecimal) format.parse(amount.replaceAll("[^\\d.,]",""));
+        return (BigDecimal) format.parse(amount.replaceAll("[^\\d.,]", ""));
     }
 }
