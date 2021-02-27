@@ -31,8 +31,23 @@ public class CheckOutSummaryStepDef {
         page.verifyTotals(totals);
     }
 
-    @When("Proceed to checkout")
+    @When("Proceed to Address")
     public void proceedToCheckOut() {
-        page.proceedToCheckOut();
+        page.proceedToAddress();
+    }
+
+    @And("Proceed to Shipment")
+    public void proceedToShipment() {
+        page.proceedToShipment();
+    }
+
+    @And("Agree on Shipment Terms")
+    public void agreeOnShipmentTerms() {
+        page.agreeOnShipmentTerms();
+    }
+
+    @And("Proceed to Payment")
+    public void proceedToPayment() {
+        page.proceedToPayment();
     }
 }

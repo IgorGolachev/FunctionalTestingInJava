@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import elements.CheckOutTable;
+import elements.Checkbox;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -11,6 +12,9 @@ public class CheckOutSummaryPage {
     public final SelenideElement breadCrumbs = $("a[class='home'] ~ span ~ span");
 
     public final CheckOutTable checkOutTable = new CheckOutTable("table[id='cart_summary']");
-    public final SelenideElement proceedToCheckoutLink = $("p a[title='Proceed to checkout'] span");
+    public final SelenideElement proceedToAddressLink = $("p a[title='Proceed to checkout'] span");
+    public final SelenideElement proceedToShipmentLink = $("button[name='processAddress'] span");
+    public final Checkbox shipmentAgreementCheckbox = new Checkbox("input[id='cgv']");
+    public final SelenideElement proceedToPaymentLink = $("button[name='processCarrier'] span");
 
 }

@@ -44,15 +44,39 @@ public class CheckOutSummarySteps {
             }
         });
         Optional<BigDecimal> sum = parsedPrices.stream().reduce(BigDecimal::add);
+
         assertThat(parse(totals.get("Total products"))).isEqualTo(sum.get());
+        assertThat(parse(totals.get("Total products"))).isEqualTo(parse(ui.checkOutTable.totalProducts));
+
         assertThat(parse(totals.get("Total shipping"))).isEqualTo(new BigDecimal("2.00"));
+        assertThat(parse(totals.get("Total shipping"))).isEqualTo(parse(ui.checkOutTable.totalShipping));
+
         assertThat(parse(totals.get("Total"))).isEqualTo(new BigDecimal("2.00").add(sum.get()));
+        assertThat(parse(totals.get("Total"))).isEqualTo(parse(ui.checkOutTable.total));
+
         assertThat(parse(totals.get("Tax"))).isEqualTo(new BigDecimal("0.00"));
+        assertThat(parse(totals.get("Tax"))).isEqualTo(parse(ui.checkOutTable.tax));
+
         return this;
     }
 
-    public CheckOutSummarySteps proceedToCheckOut() {
-        ui.proceedToCheckoutLink.click();
+    public CheckOutSummarySteps proceedToAddress() {
+        ui.proceedToAddressLink.click();
+        return this;
+    }
+
+    public CheckOutSummarySteps proceedToShipment() {
+        ui.proceedToShipmentLink.click();
+        return this;
+    }
+
+    public CheckOutSummarySteps proceedToPayment() {
+        ui.proceedToPaymentLink.click();
+        return this;
+    }
+
+    public CheckOutSummarySteps agreeOnShipmentTerms() {
+        ui.shipmentAgreementCheckbox.setValue("true");
         return this;
     }
 

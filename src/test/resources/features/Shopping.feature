@@ -25,4 +25,7 @@ Feature: Login
     And Verify Totals of CheckOut Summary page
       | Total products | Total shipping | Total  | Tax   |
       | $56.50         | $2.00          | $58.50 | $0.00 |
-    And Proceed to checkout
+    And Proceed to Address
+    And Proceed to Shipment
+    And Agree on Shipment Terms
+    And Proceed to Payment
