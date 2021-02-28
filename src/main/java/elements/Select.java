@@ -1,7 +1,6 @@
 package elements;
 
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
 
 public final class Select extends WrappedElement {
 
@@ -13,14 +12,6 @@ public final class Select extends WrappedElement {
 
     public Select(String path) {
         super(path);
-    }
-
-    public Select(By by) {
-        super(by);
-    }
-
-    public Select(SelenideElement element) {
-        super(element);
     }
 
 }

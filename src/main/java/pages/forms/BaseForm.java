@@ -1,6 +1,7 @@
 package pages.forms;
 
 import com.codeborne.selenide.Condition;
+import elements.RadioButton;
 import elements.WrappedElement;
 import exception.ElementValidatedException;
 import exception.NoSuchFieldException;
@@ -13,28 +14,34 @@ public class BaseForm {
 
     protected Map<String, WrappedElement> FORM_FIELDS = new HashMap<>();
 
-    public BaseForm setFieldValues(Map<String, String> info)
-            throws NoSuchFieldException, ElementValidatedException {
-        for (String key : info.keySet()) {
-            this.setFieldValueByName(key, info.get(key));
-        }
+    public BaseForm setFieldValues(Map<String, String> info) {
+
+        info.keySet().forEach(key -> {
+            try {
+                this.setFieldValueByName(key, info.get(key));
+            } catch (NoSuchFieldException e) {
+                throw new NoSuchFieldException("No such field on the current form to set value");
+            } catch (ElementValidatedException e) {
+                throw new ElementValidatedException("Element value cannot be set up or invalid styles applied");
+            }
+        });
         return this;
     }
 
-    public BaseForm verifyFieldValues(Map<String, String> info) throws NoSuchFieldException {
-        for (String key : info.keySet()) {
-            this.verifyFieldValueByName(key, info.get(key));
-        }
+    public BaseForm verifyFieldValues(Map<String, String> info) {
+        info.keySet().forEach(key -> this.verifyFieldValueByName(key, info.get(key)));
         return this;
     }
 
-    private BaseForm verifyFieldValueByName(String fieldName, String value) throws NoSuchFieldException {
+    private BaseForm verifyFieldValueByName(String fieldName, String value) {
         WrappedElement element = FORM_FIELDS.get(fieldName);
 
         if (element == null)
             throw new NoSuchFieldException(String.format("%s field doesn't exist", fieldName));
 
-        //element.shouldHave(Condition.);
+        if (!(element instanceof RadioButton))
+            element.shouldHave(Condition.text(value));
+
         return this;
     }
 

@@ -10,10 +10,10 @@ import static com.codeborne.selenide.Selenide.page;
 
 public final class WomenPageSteps {
 
-    private final String WOMEN = "Women";
     private final WomenPage ui = page(WomenPage.class);
 
     public WomenPageSteps verifyThePageIsLoaded() {
+        String WOMEN = "Women";
         ui.breadCrumbs.shouldHave(text(WOMEN));
         return this;
     }

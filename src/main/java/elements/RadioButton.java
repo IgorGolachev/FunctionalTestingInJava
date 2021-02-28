@@ -3,7 +3,6 @@ package elements;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.apache.commons.lang3.StringUtils;
-import org.openqa.selenium.By;
 import interfaces.ElementValidator;
 
 public final class RadioButton extends WrappedElement implements ElementValidator {
@@ -51,11 +50,4 @@ public final class RadioButton extends WrappedElement implements ElementValidato
         super(path);
     }
 
-    public RadioButton(By by) {
-        super(by);
-    }
-
-    public RadioButton(SelenideElement element) {
-        super(element);
-    }
 }

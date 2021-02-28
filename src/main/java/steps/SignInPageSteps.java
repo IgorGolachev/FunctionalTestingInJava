@@ -12,10 +12,10 @@ import static org.assertj.core.api.Assertions.*;
 
 public final class SignInPageSteps {
 
-    private final String AUTHENTICATION = "Authentication";
     private final SignInPage ui = page(SignInPage.class);
 
     public SignInPageSteps verifyThePageIsLoaded() {
+        String AUTHENTICATION = "Authentication";
         ui.breadCrumbs.shouldHave(text(AUTHENTICATION));
         ui.pageHeader.shouldHave(text(AUTHENTICATION.toUpperCase()));
         return this;

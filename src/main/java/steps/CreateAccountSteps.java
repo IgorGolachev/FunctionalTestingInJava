@@ -14,24 +14,22 @@ import static com.codeborne.selenide.Selenide.page;
 
 public class CreateAccountSteps {
 
-    private final String AUTHENTICATION = "Authentication";
-    private final String PAGE_HEADER = "Create an account";
     private final CreateAccountPage ui = page(CreateAccountPage.class);
 
     public CreateAccountSteps verifyThePageIsLoaded() {
+        String AUTHENTICATION = "Authentication";
         ui.breadCrumbs.shouldHave(text(AUTHENTICATION));
+        String PAGE_HEADER = "Create an account";
         ui.pageHeader.shouldHave(text(PAGE_HEADER));
         return this;
     }
 
-    public CreateAccountSteps setPersonalInformation(Map<String, String> personalInfo)
-            throws NoSuchFieldException, ElementValidatedException {
+    public CreateAccountSteps setPersonalInformation(Map<String, String> personalInfo) {
         ui.personalInformation.setFieldValues(personalInfo);
         return this;
     }
 
-    public CreateAccountSteps setAddressInformation(Map<String, String> addressInfo)
-            throws NoSuchFieldException, ElementValidatedException {
+    public CreateAccountSteps setAddressInformation(Map<String, String> addressInfo) {
         ui.addressInformation.setFieldValues(addressInfo);
         return this;
     }

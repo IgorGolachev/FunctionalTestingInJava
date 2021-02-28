@@ -3,7 +3,6 @@ package elements;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import interfaces.ElementValidator;
-import org.openqa.selenium.By;
 
 public final class FormInput extends WrappedElement implements ElementValidator {
 
@@ -39,13 +38,5 @@ public final class FormInput extends WrappedElement implements ElementValidator 
 
     public FormInput(String path) {
         super(path);
-    }
-
-    public FormInput(By by) {
-        super(by);
-    }
-
-    public FormInput(SelenideElement element) {
-        super(element);
     }
 }

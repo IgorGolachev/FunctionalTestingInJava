@@ -1,6 +1,5 @@
 package steps;
 
-import exception.NoSuchFieldException;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -17,7 +16,7 @@ public class YourPersonalInformationStepDef {
     }
 
     @And("Personal Information is as following")
-    public void verifyPersonalInformation(DataTable data) throws NoSuchFieldException {
+    public void verifyPersonalInformation(DataTable data) {
         Map<String, String> info = data.transpose().asMap(String.class, String.class);
         page.verifyPersonalInformation(info);
     }

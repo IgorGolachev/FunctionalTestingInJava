@@ -4,9 +4,10 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import interfaces.ElementValidator;
 import org.apache.commons.lang3.StringUtils;
-import org.openqa.selenium.By;
 
 public final class Checkbox extends WrappedElement implements ElementValidator {
+
+    private final String CHECKED = "checked";
 
     @Override
     public SelenideElement setValue(String checkBoxState) {
@@ -19,13 +20,13 @@ public final class Checkbox extends WrappedElement implements ElementValidator {
     public Checkbox verifyElementHasValue(String value) {
 
         if (!String.valueOf(Boolean.TRUE).equalsIgnoreCase(value) &&
-                !String.valueOf(Boolean.TRUE).equalsIgnoreCase(value))
+                !String.valueOf(Boolean.FALSE).equalsIgnoreCase(value))
             throw new IllegalArgumentException("Provided Checkbox value cannot be handled as boolean");
 
         SelenideElement parent = super.element.parent();
 
         if (String.valueOf(Boolean.TRUE).equalsIgnoreCase(value))
-            parent.shouldHave(Condition.cssClass("checked"));
+            parent.shouldHave(Condition.cssClass(CHECKED));
         else
             parent.shouldHave(Condition.attributeMatching("class", StringUtils.EMPTY));
 
@@ -33,7 +34,7 @@ public final class Checkbox extends WrappedElement implements ElementValidator {
     }
 
     private boolean ifTicked() {
-        return this.parent().getAttribute("class").equals("checked");
+        return CHECKED.equals(this.parent().getAttribute("class"));
     }
 
     @Override
@@ -57,13 +58,4 @@ public final class Checkbox extends WrappedElement implements ElementValidator {
     public Checkbox(String path) {
         super(path);
     }
-
-    public Checkbox(By by) {
-        super(by);
-    }
-
-    public Checkbox(SelenideElement element) {
-        super(element);
-    }
-
 }

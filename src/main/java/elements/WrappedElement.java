@@ -1,7 +1,7 @@
 package elements;
 
 import java.time.Duration;
-import org.openqa.selenium.By;
+
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 
@@ -25,10 +25,6 @@ public class WrappedElement {
     protected WrappedElement verifyElementHasValue(String value) {
         System.out.println("default implementation for value field check");
         return this;
-    }
-
-    public WrappedElement(By by) {
-        this.element = Selenide.$(by);
     }
 
     public WrappedElement(SelenideElement element) {
