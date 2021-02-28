@@ -19,6 +19,11 @@ public final class BaseStepDef {
         page.selectDressesDepartment();
     }
 
+    @When("Select Women page")
+    public void selectWomen() {
+        page.selectWomenDepartment();
+    }
+
     @Then("Verify current user is {string}")
     public void verifyUserIsLoggedIn(String userName) {
         page.verifyCurrentUserIs(userName);

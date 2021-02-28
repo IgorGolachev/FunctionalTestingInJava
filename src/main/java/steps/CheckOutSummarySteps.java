@@ -75,6 +75,21 @@ public class CheckOutSummarySteps {
         return this;
     }
 
+    public CheckOutSummarySteps payByCreditCard() {
+        ui.payByBankWireLink.click();
+        return this;
+    }
+
+    public CheckOutSummarySteps confirmOrder() {
+        ui.confirmOrderButton.click();
+        return this;
+    }
+
+    public CheckOutSummarySteps verifyTheOrderIsComplete() {
+        ui.confirmationLabel.shouldHave(text("Your order on My Store is complete."));
+        return this;
+    }
+
     public CheckOutSummarySteps agreeOnShipmentTerms() {
         ui.shipmentAgreementCheckbox.setValue("true");
         return this;

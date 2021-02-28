@@ -10,6 +10,7 @@ public final class BasePage {
     public final SelenideElement signInButton = $("a[class='login']");
     public final SelenideElement currentUserLink = $("div[class='header_user_info'] a span");
     public final SelenideElement dressesLink = $x("(//a[@title='Dresses'])[2]");
+    public final SelenideElement womenLink = $("a[title='Women']");
     public final SelenideElement basketLink = $("a[title='View my shopping cart']");
     public final SelenideElement checkOutLink = $("a[id='button_order_cart']");
 }

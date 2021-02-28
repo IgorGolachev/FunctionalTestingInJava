@@ -5,6 +5,7 @@ import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.en_scouse.An;
 
 import java.text.ParseException;
 import java.util.List;
@@ -49,5 +50,20 @@ public class CheckOutSummaryStepDef {
     @And("Proceed to Payment")
     public void proceedToPayment() {
         page.proceedToPayment();
+    }
+
+    @And("Pay by Credit Card")
+    public void payByCreditCard() {
+        page.payByCreditCard();
+    }
+
+    @And("Confirm order")
+    public void confirmOrder() {
+        page.confirmOrder();
+    }
+
+    @Then("Verify The Order Is Complete")
+    public void verifyTheOrderIsComplete() {
+        page.verifyTheOrderIsComplete();
     }
 }

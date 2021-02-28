@@ -26,6 +26,11 @@ public final class BasePageSteps {
         return this;
     }
 
+    public BasePageSteps selectWomenDepartment() {
+        ui.womenLink.shouldBe(Condition.visible).click();
+        return this;
+    }
+
     public BasePageSteps verifyCurrentUserIs(String userName) {
         ui.currentUserLink.shouldHave(text(userName));
         return this;
