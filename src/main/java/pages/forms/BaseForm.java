@@ -1,6 +1,8 @@
 package pages.forms;
 
 import com.codeborne.selenide.Condition;
+import elements.Checkbox;
+import elements.Input;
 import elements.RadioButton;
 import elements.WrappedElement;
 import exception.ElementValidatedException;
@@ -33,14 +35,18 @@ public class BaseForm {
         return this;
     }
 
-    private BaseForm verifyFieldValueByName(String fieldName, String value) {
+    private BaseForm verifyFieldValueByName(String fieldName, String fieldValue) {
         WrappedElement element = FORM_FIELDS.get(fieldName);
 
         if (element == null)
             throw new NoSuchFieldException(String.format("%s field doesn't exist", fieldName));
 
-        if (!(element instanceof RadioButton))
-            element.shouldHave(Condition.text(value));
+        if (element instanceof Input)
+            element.shouldHave(Condition.value(fieldValue));
+        else if (element instanceof Checkbox)
+            ((Checkbox) element).verifyElementHasValue(fieldValue);
+        else if (element instanceof RadioButton)
+            ((RadioButton) element).verifyElementHasValue(fieldValue);
 
         return this;
     }
