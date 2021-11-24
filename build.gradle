@@ -8,7 +8,7 @@ version '1.0-SNAPSHOT'
 // Versioning of dependencies
 def cucumberVersion = '6.9.1'
 def junitVersion = '5.7.0'
-def selenideVersion = '5.17.0'
+def selenideVersion = '6.1.0'
 def lombokVersion = '1.18.16'
 
 repositories {
