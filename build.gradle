@@ -8,7 +8,7 @@ version '1.0-SNAPSHOT'
 // Versioning of dependencies
 def cucumberVersion = '6.9.1'
 def junitVersion = '5.7.0'
-def selenideVersion = '5.17.0'
+def selenideVersion = '6.1.1'
 def lombokVersion = '1.18.16'
 
 repositories {
@@ -22,6 +22,7 @@ dependencies {
     compile "com.codeborne:selenide:${selenideVersion}"
 
     implementation 'org.assertj:assertj-core:3.18.1'
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
 
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
     testRuntimeOnly "org.junit.vintage:junit-vintage-engine:${junitVersion}"

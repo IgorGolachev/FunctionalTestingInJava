@@ -33,4 +33,16 @@ public final class BaseStepDef {
     public void accessBasketAndCheckOut() {
         page.accessBasketAndCheckOut();
     }
+
+
+
+
+
+
+
+
+
+
+
+
 }

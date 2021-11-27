@@ -1,9 +1,10 @@
 package elements;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.SelenideElement;
 import interfaces.ElementValidator;
 import org.apache.commons.lang3.StringUtils;
+
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 
 public final class Checkbox extends WrappedElement implements ElementValidator {
 
